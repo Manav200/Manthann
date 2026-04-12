@@ -1,0 +1,143 @@
+How Artificial
+Intelligence is
+Transforming the World.
+From Confusion → Clarity → Execution
+A I  C a r e e r
+D e c i s i o n  E n g i n e
+( A g e n t i c  A I )
+Team Name:  Team Manthan
+Members:
+Manav Mahawar(Leader)
+Ayush Raj
+The Career Decision Crisis
+Student choose Careers based on:
+Results:
+Problem Statement
+No System to evaluate:
+Career decisions are irreversible—but the process is broken.
+Peer pressure – following what friends are doing
+Trends – picking what’s currently popular (AI,
+coding, etc.)
+Incomplete information – not understanding what
+the job actually involves
+Identify their real strengths and interests
+Understand actual job expectations
+Match both effectively
+Spend years in the wrong
+field
+Switching careers later
+Underemployment, not
+reaching their potential
+Why Existing Solution
+Fails?
+C a r e e r  G a p s
+Everyone suggests. No one ensures action.
+Generic quizzes
+They give surface-level results like “You should
+be an engineer or designer”
+ No deep personalization or real guidance
+YouTube & Google
+Provide too much information
+Students get confused instead of gaining clarity
+Career counselors
+Helpful, but not scalable or affordable for
+everyone
+AI chatbots
+They give advice, but don’t ensure execution or
+follow-through
+O u r  S o l u t i o n
+AI Career Decision Engine + Execution Agent
+Not guidance. A system for decision + action.
+Understands the User
+Deep analysis of personality, skills, and interests
+Simulates Careers
+Real-world preview of different career paths
+Forces a Decision
+Eliminates confusion and drives clear choice
+7-Day Execution Plan
+Immediate, actionable roadmap to get started
+Tracks Progress
+Ensures consistency and accountability
+H o w  i t  w o r k s ?
+User Flow
+USER (Start)
+↓
+PROFILING (Deep Analysis)
+↓
+OPTIONS (Career Match)
+↓
+SIMULATION (Real Preview)
+↓
+DECISION (Final Choice)
+↓
+ROADMAP (Action Plan)
+↓
+TRACKING (Progress Check)
+Smart Profiling
+Deep User
+Understanding
+Behavioral Questions → Not generic quizzes
+Strength Detection → Identifies core abilities
+Weakness Mapping → Highlights improvement areas
+Work Style Analysis → Understands how user prefers to work
+Bias Detection → Spots peer pressure & risk avoidance
+Output Profile → Structured and actionable insights
+C a r e e r  +
+S i m u l a t i o n
+Personalized Recommendation
++ Real Experience
+Don’t imagine careers—experience them.
+3 Personalized Options In Top Careers
+Why It Fits → Tailored to the user
+Skill Requirements → What you need
+to learn
+Real Challenges → Honest industry
+reality
+Career Simulation → “Day in the life”
+experience
+Task Exposure → Real work + struggles
+Simulations
+D e c i s i o n  +
+E x e c u t i o n
+Forcing Action
+User selects ONE clear career path to avoid
+confusion
+ Commits to a focused 7-day execution cycle
+AI Roadmap
+Personalized daily tasks based on chosen career
+Focus on real outputs like projects and hands-on
+practice
+Clarity without action is useless.
+Example Flow
+Day 1: Learn core basics and concepts
+ Day 3: Build a small practical project
+ Day 7: Publish or showcase completed work
+Execution System
+T r a c k i n g  +  F e e d b a c k
+Decisions improve with real experience.
+Daily Tracking
+Users follow a clear checklist of daily tasks
+Tracks completion to maintain consistency
+Progress Monitoring
+Visual progress shows how far the user has come
+Helps identify gaps and improvement areas
+AI Feedback System
+Gives smart feedback: continue or pivot
+Adapts plan based on user performance
+T e c h  +
+I m p a c t
+From confusion → clarity → execution
+Tech Stack
+Frontend built with React for smooth UI
+Backend powered by Node / FastAPI for scalability
+AI integration using OpenAI API for smart decisions
+Lightweight local storage for fast performance
+Real Impact
+Reduces wrong career choices early
+Saves years of time and effort
+Improves skills and employability
+Scalable Solution
+Can be used by students at any level
+Accessible and affordable compared to
+traditional guidance
+T h a n k  Y o u
