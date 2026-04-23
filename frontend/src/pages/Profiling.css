@@ -1,0 +1,502 @@
+/* ===== Profiling Page (Multi-phase onboarding) ===== */
+
+.profiling-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px var(--space-lg) var(--space-2xl);
+}
+
+.profiling-container {
+  max-width: 720px;
+  width: 100%;
+}
+
+/* ---- Step indicators ---- */
+.step-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.step-dot-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+/* Connector line between dots */
+.step-dot-wrap + .step-dot-wrap::before {
+  content: '';
+  position: absolute;
+  right: calc(100% + 4px);
+  top: 13px;
+  width: calc(var(--space-lg) - 8px);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.step-done + .step-dot-wrap::before,
+.step-done.step-dot-wrap + .step-dot-wrap::before {
+  background: var(--color-accent-green);
+  opacity: 0.4;
+}
+
+.step-dot-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.65rem;
+  transition: all var(--transition-base);
+}
+
+.step-active .step-dot-circle {
+  border-color: var(--color-accent-blue);
+  background: rgba(91, 147, 255, 0.1);
+  color: var(--color-accent-blue);
+  box-shadow: 0 0 10px rgba(91, 147, 255, 0.15);
+}
+
+.step-done .step-dot-circle {
+  border-color: var(--color-accent-green);
+  background: var(--color-accent-green);
+  color: white;
+}
+
+.step-dot-label {
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.step-active .step-dot-label {
+  color: var(--color-accent-blue);
+}
+
+.step-done .step-dot-label {
+  color: var(--color-accent-green);
+}
+
+/* ---- Progress header ---- */
+.profiling-header {
+  margin-bottom: var(--space-xl);
+}
+
+.profiling-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.q-counter {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-family: var(--font-heading);
+}
+
+/* ---- Phase card (reusable wrapper) ---- */
+.phase-card {
+  padding: var(--space-2xl);
+  animation: fadeSlideIn 0.35s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.phase-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0.3;
+}
+
+.phase-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.phase-header .badge {
+  margin-bottom: var(--space-sm);
+}
+
+.phase-header h2 {
+  font-size: 1.4rem;
+  margin-bottom: var(--space-sm);
+}
+
+.phase-header p {
+  font-size: 0.92rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ---- Situation cards (Step 1) ---- */
+.situation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.situation-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-md);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+}
+
+.situation-card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.situation-selected {
+  border-color: var(--color-accent-blue) !important;
+  background: rgba(91, 147, 255, 0.05) !important;
+}
+
+.situation-icon {
+  color: var(--color-text-muted);
+  transition: color var(--transition-base);
+}
+
+.situation-selected .situation-icon {
+  color: var(--color-accent-blue);
+}
+
+.situation-card h4 {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.situation-card p {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.situation-check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--color-accent-blue);
+  animation: checkPop 0.25s ease-out;
+}
+
+/* ---- Field selection grid (Step 2) ---- */
+.fields-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.field-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.field-card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+}
+
+.field-selected {
+  border-color: var(--field-color, var(--color-accent-blue)) !important;
+  background: color-mix(in srgb, var(--field-color, var(--color-accent-blue)) 6%, transparent) !important;
+  color: var(--color-text-primary);
+}
+
+.field-emoji {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.field-label {
+  flex: 1;
+  text-align: left;
+}
+
+.field-check {
+  flex-shrink: 0;
+  color: var(--field-color, var(--color-accent-blue));
+  animation: checkPop 0.25s ease-out;
+}
+
+.fields-hint {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* ---- Degree list (Step 2b) ---- */
+.degree-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.degree-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  text-align: left;
+}
+
+.degree-option:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+}
+
+.degree-selected {
+  border-color: var(--color-accent-green) !important;
+  background: rgba(61, 214, 140, 0.05) !important;
+  color: var(--color-text-primary);
+}
+
+/* ---- Question card (Step 3) ---- */
+.question-card {
+  padding: var(--space-2xl);
+  margin-bottom: var(--space-lg);
+  animation: fadeSlideIn 0.3s ease-out;
+}
+
+.question-card:hover {
+  border-color: var(--glass-border);
+}
+
+.question-text {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xl);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-family: var(--font-body);
+}
+
+.option-btn:hover {
+  background: rgba(91, 147, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+}
+
+.option-selected {
+  background: rgba(91, 147, 255, 0.06) !important;
+  border-color: rgba(91, 147, 255, 0.25) !important;
+  border-left: 3px solid var(--color-accent-blue) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.option-letter {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.82rem;
+  font-family: var(--font-heading);
+  color: var(--color-text-muted);
+  transition: all var(--transition-base);
+}
+
+.option-selected .option-letter {
+  background: var(--color-accent-blue);
+  color: white;
+}
+
+.option-text { flex: 1; }
+
+.option-check {
+  color: var(--color-accent-blue);
+  flex-shrink: 0;
+  animation: checkPop 0.25s ease-out;
+}
+
+@keyframes checkPop {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* ---- Navigation ---- */
+.profiling-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-lg);
+}
+
+.profiling-nav button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ---- Analyzing screen ---- */
+.analyzing-screen {
+  text-align: center;
+}
+
+.analyzing-animation {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Concentric rings behind brain */
+.analyzing-animation::before,
+.analyzing-animation::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(155, 109, 255, 0.12);
+  animation: ringPulse 2s ease-out infinite;
+}
+.analyzing-animation::before {
+  width: 100px;
+  height: 100px;
+}
+.analyzing-animation::after {
+  width: 130px;
+  height: 130px;
+  animation-delay: 0.5s;
+}
+
+@keyframes ringPulse {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+.analyzing-brain {
+  color: var(--color-accent-purple);
+  animation: brainPulse 1.5s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes brainPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+
+.analyzing-sparkle {
+  position: absolute;
+  color: var(--color-accent-cyan);
+  z-index: 1;
+}
+
+.s1 { top: -4px; right: -4px; animation: sparkFloat 1.2s ease-in-out infinite; }
+.s2 { bottom: 0; left: -8px; animation: sparkFloat 1.5s ease-in-out infinite 0.3s; }
+.s3 { top: 10px; right: -12px; animation: sparkFloat 1.8s ease-in-out infinite 0.6s; }
+
+@keyframes sparkFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+  50% { transform: translate(3px, -5px) scale(1.2); opacity: 0.4; }
+}
+
+.analyzing-screen h2 { margin-bottom: var(--space-sm); }
+
+.analyzing-bar {
+  animation: analyzeProgress 2.8s ease-in-out forwards;
+}
+
+@keyframes analyzeProgress {
+  0% { width: 0%; }
+  40% { width: 45%; }
+  70% { width: 78%; }
+  100% { width: 100%; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .situation-grid {
+    grid-template-columns: 1fr;
+  }
+  .fields-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .step-indicators {
+    gap: var(--space-md);
+  }
+  .phase-card {
+    padding: var(--space-lg);
+  }
+}

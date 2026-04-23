@@ -1,0 +1,149 @@
+/* ===== Roadmap Page ===== */
+
+.roadmap-page {
+  padding-top: 80px;
+  min-height: 100vh;
+}
+
+.roadmap-section {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.roadmap-header {
+  padding: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.roadmap-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0.35;
+}
+
+.roadmap-header:hover {
+  border-color: var(--glass-border);
+}
+
+.roadmap-header .badge {
+  margin-bottom: var(--space-sm);
+}
+
+.roadmap-header h2 {
+  margin-bottom: var(--space-sm);
+  font-size: 1.5rem;
+}
+
+.roadmap-header p {
+  font-size: 0.92rem;
+}
+
+/* Day cards */
+.roadmap-days {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: relative;
+  padding-left: var(--space-sm);
+}
+
+/* Vertical connector */
+.roadmap-days::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  bottom: 20px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--color-accent-blue), var(--color-accent-purple), var(--color-accent-green));
+  opacity: 0.1;
+}
+
+.roadmap-day {
+  padding: var(--space-lg);
+  margin-left: var(--space-lg);
+  position: relative;
+}
+
+.roadmap-day:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.day-badge {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: var(--color-accent-blue);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.02em;
+}
+
+.day-header h3 {
+  font-size: 1.05rem;
+}
+
+.day-tasks {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.day-task {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  transition: background var(--transition-fast);
+  line-height: 1.5;
+  border-left: 2px solid transparent;
+}
+
+.day-task:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-left-color: rgba(91, 147, 255, 0.15);
+}
+
+.task-bullet {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: var(--color-accent-blue);
+  opacity: 0.4;
+}
+
+/* CTA */
+.roadmap-cta {
+  text-align: center;
+  padding: var(--space-2xl) 0 var(--space-xl);
+}
+
+.roadmap-cta p {
+  margin-bottom: var(--space-lg);
+  font-size: 1rem;
+}

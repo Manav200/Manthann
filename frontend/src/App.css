@@ -1,0 +1,58 @@
+.app-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Loading screen */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.loading-icon {
+  color: var(--color-accent-blue);
+  opacity: 0.6;
+  animation: loadPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loadPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* App-level loading spinner */
+.app-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 16px;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.app-loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  border-top-color: var(--color-accent-blue);
+  border-radius: 50%;
+  animation: appSpin 0.7s linear infinite;
+}
+
+@keyframes appSpin {
+  to { transform: rotate(360deg); }
+}
