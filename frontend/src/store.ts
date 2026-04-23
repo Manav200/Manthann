@@ -244,8 +244,8 @@ export function firestoreClearState(uid: string): void {
 export const MOTIVATIONAL_QUOTES = [
   { text: "Every expert was once a beginner. You've already started — that's more than most people ever do.", author: "Helen Hayes" },
   { text: "It does not matter how slowly you go, as long as you do not stop.", author: "Confucius" },
-  { text: "The first 7 days are always the hardest. Push through this, and you'll surprise yourself.", author: "AAI" },
-  { text: "Switching is tempting but finishing builds character. Give this path the full 7 days — you owe it to yourself.", author: "AAI" },
+  { text: "The first 7 days are always the hardest. Push through this, and you'll surprise yourself.", author: "Manthan" },
+  { text: "Switching is tempting but finishing builds character. Give this path the full 7 days — you owe it to yourself.", author: "Manthan" },
   { text: "You don't have to be great to start, but you have to start to be great.", author: "Zig Ziglar" },
   { text: "Doubt kills more dreams than failure ever will. Trust the process.", author: "Suzy Kassem" },
   { text: "Success is the sum of small efforts repeated day in and day out.", author: "Robert Collier" },

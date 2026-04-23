@@ -20,9 +20,9 @@ function AppRoutes() {
 
   if (loading) {
     return (
-      <div className="loading-screen">
-        <Brain size={40} className="loading-icon" />
-        <p>Loading AAI...</p>
+      <div className="app-loading">
+        <div className="app-loading-spinner"></div>
+        <p>Loading...</p>
       </div>
     );
   }

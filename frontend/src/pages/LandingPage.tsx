@@ -25,7 +25,7 @@ export default function LandingPage() {
             Execution
           </h1>
           <p className="hero-subtitle">
-            Stop guessing your career. AAI deeply profiles you, simulates real career
+            Stop guessing your career. Manthan deeply profiles you, simulates real career
             paths, forces a clear decision, and gives you a 7-day actionable plan to start
             executing — today.
           </p>
@@ -115,7 +115,7 @@ export default function LandingPage() {
       <section className="section" id="how-it-works">
         <div className="section-header">
           <span className="badge badge-green">Our Solution</span>
-          <h2>How AAI Works</h2>
+          <h2>How Manthan Works</h2>
           <p>Not guidance. A system for decision + action.</p>
         </div>
         <div className="steps-timeline">
@@ -132,7 +132,7 @@ export default function LandingPage() {
       <section className="cta-section">
         <div className="cta-content glass-card">
           <h2>Ready to Find Your True Path?</h2>
-          <p>Stop guessing. Start AAI. It takes just 5 minutes.</p>
+          <p>Stop guessing. Start Manthan. It takes just 5 minutes.</p>
           <button className="btn btn-primary btn-lg" onClick={() => navigate(startPath)}>
             Begin Profiling <ArrowRight size={20} />
           </button>
@@ -141,8 +141,8 @@ export default function LandingPage() {
 
       {/* ===== FOOTER ===== */}
       <footer className="footer">
-        <p>Built by <strong>Team AAI</strong> — Manav Mahawar & Ayush Raj</p>
-        <p className="footer-sub">AI Career Decision Engine · Agentic AI</p>
+        <p>Built by <strong>Team Manthan</strong> — Manav Mahawar & Ayush Raj</p>
+        <p className="footer-sub">Career Navigator</p>
       </footer>
     </div>
   );

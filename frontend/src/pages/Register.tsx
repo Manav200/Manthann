@@ -70,8 +70,8 @@ export default function Register() {
           <div className="auth-icon">
             <UserPlus size={28} />
           </div>
-          <h1>Create Your <span className="gradient-text">Account</span></h1>
-          <p>Join AAI and discover your ideal career path</p>
+          <h2>Create an Account</h2>
+          <p>Join Manthan and discover your ideal career path</p>
         </div>
 
         <form className="auth-card glass-card" onSubmit={handleSubmit} noValidate>

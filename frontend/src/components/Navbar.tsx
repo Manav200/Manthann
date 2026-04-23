@@ -50,8 +50,8 @@ export default function Navbar() {
             <Brain size={22} />
           </div>
           <span className="brand-text">
-            <span className="gradient-text">AAI</span>
-            <span className="brand-sub">AI Career Engine</span>
+            <span className="gradient-text">Manthan</span>
+            <span className="brand-sub">Career Navigator</span>
           </span>
         </Link>
 
